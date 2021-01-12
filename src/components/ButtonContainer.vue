@@ -1,10 +1,10 @@
 <template>
     <div>
         <p v-if="loading">Ladataan...</p>
-        <div v-if="!loading"> 
-        <button  v-on:click="sendVote(word1.id)">{{word1.fields.name}}</button>
-         vai 
-        <button v-on:click="sendVote(word2.id)">{{word2.fields.name}}</button>
+        <div v-else> 
+            <button  v-on:click="sendVote(word1.id)">{{word1.fields.name}}</button>
+            vai 
+            <button v-on:click="sendVote(word2.id)">{{word2.fields.name}}</button>
         </div>
        
     </div>
@@ -17,8 +17,8 @@ export default {
     name: 'ButtonContainer',
     data() {
         return {
-            word1: {},
-            word2: {},
+            word1: null,
+            word2: null,
             info: null,
             randomItem: null,
             loading: false
@@ -27,7 +27,7 @@ export default {
     mounted () {
         this.loading = true;
         axios
-        .get('//localhost:8888/api/words')
+        .get('//127.0.0.1:8888/api/words')
         .then(response => {       
             this.info = response.data
             console.log(this.info)
@@ -45,7 +45,7 @@ export default {
         },
         sendVote(id) {
             axios
-            .get(`//localhost:8888/api/updateVotes?id=${id}`)
+            .get(`//127.0.0.1:8888/api/updateVotes?id=${id}`)
             .then(response => {                
                 console.log(response.data)
                 this.pickRandomWords();
