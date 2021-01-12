@@ -27,7 +27,7 @@ export default {
     mounted () {
         this.loading = true;
         axios
-        .get('//localhost:8888/.netlify/functions/words')
+        .get('//kumpi.netlify.app/api/words')
         .then(response => {       
             this.info = response.data
             console.log(this.info)
@@ -45,7 +45,7 @@ export default {
         },
         sendVote(id) {
             axios
-            .get(`//localhost:8888/api/updateVotes?id=${id}`)
+            .get(`//kumpi.netlify.app/api/updateVotes?id=${id}`)
             .then(response => {                
                 console.log(response.data)
                 this.pickRandomWords();
