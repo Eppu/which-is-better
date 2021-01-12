@@ -1,4 +1,5 @@
 # which-is-better
+[![Netlify Status](https://api.netlify.com/api/v1/badges/263b8215-e7d5-4404-989f-ad2f75b1a456/deploy-status)](https://app.netlify.com/sites/nifty-mestorf-1e49c0/deploys)
 
 ## Project setup
 ```
