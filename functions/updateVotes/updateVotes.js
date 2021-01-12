@@ -41,6 +41,9 @@ const handler = async (event) => {
     // Return after done
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({ message: `Updating votecount for ${subject}` }),
     }
   // Catch any errors
