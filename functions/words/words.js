@@ -15,8 +15,8 @@ exports.handler = function (event, context, callback) {
     callback(null, {
       statusCode: 200,
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Origin": "*",
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
     });
