@@ -27,9 +27,9 @@ export default {
     mounted () {
         this.loading = true;
         axios
-        .get('//127.0.0.1:8888/api/words')
+        .get('//localhost:8888/api/things')
         .then(response => {       
-            this.info = response.data
+            this.info = response.data.allRecords
             console.log(this.info)
             
             this.pickRandomWords();
@@ -45,7 +45,7 @@ export default {
         },
         sendVote(id) {
             axios
-            .get(`//127.0.0.1:8888/api/updateVotes?id=${id}`)
+            .get(`//localhost:8888/api/updateVotes?id=${id}`)
             .then(response => {                
                 console.log(response.data)
                 this.pickRandomWords();
