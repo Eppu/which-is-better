@@ -27,7 +27,7 @@ export default {
     mounted () {
         this.loading = true;
         axios
-        .get('http://localhost:8888/api/words')
+        .get('//localhost:8888/api/words')
         .then(response => {       
             this.info = response.data
             console.log(this.info)
@@ -45,7 +45,7 @@ export default {
         },
         sendVote(id) {
             axios
-            .get(`http://localhost:8888/api/updateVotes?id=${id}`)
+            .get(`//localhost:8888/api/updateVotes?id=${id}`)
             .then(response => {                
                 console.log(response.data)
                 this.pickRandomWords();
