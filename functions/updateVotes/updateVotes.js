@@ -17,7 +17,8 @@ const handler = async (event) => {
     base('things').find(subject, function(err, record) {
         if (err) { console.error(err); return; }
         currentVotes = record.get('votes');
-        console.log('Current votes:', currentVotes);
+        currentWord = record.get('name');
+        console.log('Current votecount for: ' + currentWord + " is " + currentVotes);
         // Update votecount
         // TODO: Improve error handling
         base('things').update([
@@ -42,8 +43,8 @@ const handler = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
+        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Headers': 'Content-Type',
       },
       body: JSON.stringify({ message: `Updating votecount for ${subject}` }),
     }
