@@ -5,6 +5,7 @@
    from = "/api/*"
    to = "/.netlify/functions/:splat"
    status = 200
+   headers = { Access-Control-Allow-Origin = "*" }
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
