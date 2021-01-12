@@ -8,7 +8,7 @@ Airtable.configure({
 });
 let base = Airtable.base(process.env.AIRTABLE_CLIENT_ID);
 
-const handler = async (event) => {
+const handler = (event) => {
   try {
     const subject = event.queryStringParameters.id;
     let currentVotes = 0;
@@ -18,7 +18,7 @@ const handler = async (event) => {
         if (err) { console.error(err); return; }
         currentVotes = record.get('votes');
         currentWord = record.get('name');
-        console.log('Current votecount for: ' + currentWord + " is " + currentVotes);
+        console.log('Current votecount for ' + currentWord + " is " + currentVotes);
         // Update votecount
         // TODO: Improve error handling
         base('things').update([
