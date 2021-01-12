@@ -2,9 +2,9 @@
     <div>
         <p v-if="loading">Ladataan...</p>
         <div v-else> 
-            <button  v-on:click="sendVote(word1.id)">{{word1.fields.name}}</button>
+            <button v-if="word1.fields.name" v-on:click="sendVote(word1.id)">{{word1.fields.name}}</button>
             vai 
-            <button v-on:click="sendVote(word2.id)">{{word2.fields.name}}</button>
+            <button v-if="word2.fields.name" v-on:click="sendVote(word2.id)">{{word2.fields.name}}</button>
         </div>
        
     </div>
@@ -17,11 +17,11 @@ export default {
     name: 'ButtonContainer',
     data() {
         return {
-            word1: null,
-            word2: null,
+            word1: {},
+            word2: {},
             info: null,
             randomItem: null,
-            loading: false
+            loading: true
         }
     },
     mounted () {
