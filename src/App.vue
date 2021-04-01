@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <h1>Kumpi asia on parempi?</h1>
-    <ButtonContainer />
+    <div class="container">
+      <h1>Kumpi asia on parempi?</h1>
+      <ButtonContainer />
+      <p class="standings"><a href="https://airtable.com/shrGkje9DPdJukNt9">Tilanne</a></p>
+    </div>
   </div>
 </template>
 
@@ -23,6 +26,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  flex-direction: column;
+}
+.standings {
+  position: fixed;     
+  text-align: center;    
+  bottom: 0px; 
+  width: 100%;
 }
 </style>
